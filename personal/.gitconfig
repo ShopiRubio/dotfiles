@@ -20,10 +20,7 @@
   dv = difftool -t vimdiff -y
   gl = config --global -l # List all global git configs
   se = !git rev-list --all | xargs git grep -F # Search for a string within your commits
-
-  #  === Listing Aliases ===
-  alias    = "!grep -E '(  =|^$)' ~/.gitconfig | sed -E -e 's/=.+#//' | less"
-  al2      = "!git config -l" | grep alias | cut -c 7-
+  alias = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
 
   #  === Stash Commands ===
   sl = stash list
