@@ -1,0 +1,60 @@
+#!/bin/zsh -e
+
+dir="${1:-$PWD}"
+
+warn () {
+  echo "$*" >&2
+}
+
+violations=()
+violation () {
+  violations+=("$1: $2")
+}
+
+gdiff () {
+  git diff --cached --minimal "$@"
+}
+
+changed-files () {
+  gdiff --diff-filter=AMR --name-only
+}
+
+x-if () {
+  if [[ -x "$1" ]]; then
+    "$1"
+  fi
+}
+
+dev-has () {
+  grep -q " $1:" dev.yml
+}
+
+dev-if () {
+  if dev-has "$1"; then
+    dev "$@"
+  fi
+}
+
+warn '# pre-commit'
+
+x-if "$dir/.git/hooks/pre-commit.sample"
+
+if ruby_files=($(changed-files | grep -E '\.rb$')); then
+
+  dev-if style "${ruby_files[@]}"
+
+  dev-if typecheck "${ruby_files[@]}"
+
+  for i in "${ruby_files[@]}"; do
+    if gdiff -U0 "$i" | grep -qE '^\+.+\s*=\s*Class\.new\('; then
+      violation "$i" "Don't use Class.new"
+    fi
+  done
+
+fi
+
+if [[ ${#violations} -gt 0 ]]; then
+  warn $'\nViolations:'
+  warn "${(j:\n:)violations[@]}"
+  exit 1
+fi
