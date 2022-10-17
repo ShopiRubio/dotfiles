@@ -1,17 +1,55 @@
 # Add your preferred git settings here. This will overwrite anything in `core/configs/.gitconfig`.
 
 [alias]
-  s = status
+  st = status
   d = diff
   c = checkout
   a = add .
-  cb = checkout -b
   fo = fetch origin
-  bd = branch -D
-  c-- = checkout -- .
+  lb = branch             # List all local branches
+  nb = checkout -b        # Create a new branch and then switch to the newly created branch
+  db = branch -D          # Delete local branch
+  c-- = checkout -- .     # Reverts everything to the last committed state
+  res = !git reset --hard # When in need of a clean up of all of your local changes
   ra = rebase --abort
   rc = rebase --continue
   acm = !git add -A && git commit -m
-  pocb = push origin HEAD
+  pocb = push origin HEAD # Push to branch you're working on.
   comb = !git fo && git checkout origin/main -b
   romi = !git fo && git rebase origin/main -i
+  dv = difftool -t vimdiff -y
+  gl = config --global -l # List all global git configs
+  se = !git rev-list --all | xargs git grep -F # Search for a string within your commits
+
+  #  === Listing Aliases ===
+  alias    = "!grep -E '(  =|^$)' ~/.gitconfig | sed -E -e 's/=.+#//' | less"
+  al2      = "!git config -l" | grep alias | cut -c 7-
+
+  #  === Stash Commands ===
+  sl = stash list
+  slf = stash-list --full
+  ss = stash save
+  sa = "!sh -c 'git stash apply stash@{$1}' -"
+  sd = "!sh -c 'git stash drop stash@{$1}' -"
+  sp = stash pop
+
+  #  === Working with Previous Commit Commands ===
+  r1       = reset HEAD^               # Move HEAD pointer back one commit and keep all changes in the working directory
+  r2       = reset HEAD^^              # Move HEAD pointer back two commits and keep all changes in the working directory
+  f1       = reset HEAD@{1}            # Move HEAD pointer forward one commit
+  d1       = difftool HEAD^ HEAD       # Diff a file with itself from the previous commit
+  d2       = difftool HEAD^^ HEAD      # Diff a file with itself from two commits ago
+
+  #  === Branch management ===
+  parseBranchName = !git branch | grep '*' | sed 's/* //'            # Get the current branch name
+
+  #  === Logging ===
+  last    = log -1 --decorate                                                       # Show the last commit on the current branch
+  pretty  = log --pretty=format:"%C(auto)%h%d\\ %s\\ %C(cyan)[%aN]"
+  lsb     = !git pretty --graph   # List commits on this branch, formatted
+  lsd     = log --pretty=format:"%C(auto)%h%d\\ %s\\ %C(cyan)[%aN]\\ %C(magenta)[%ad]" --graph --all -20 # List commits including date
+
+  #  === URL generation ===
+  rrl     = !sh -c 'echo $(git config remote.${1:-origin}.url | sed -E s/[a-z]+@\\(.+?\\):\\(.+\\)\\.git$/\\\\\\1\\\\\\/\\\\\\2/)' - # Get the URL of a repository (origin by default)
+  crl     = !sh -c 'echo $(git rrl)"/commit/"$(echo $(git rev-parse $([ "$0" = "sh" ] && echo HEAD || echo $0)))' # Get the GitHub URL of the revision (HEAD by default)
+  brl     = !sh -c 'BRANCH=${1:-$(git symbolic-ref --short HEAD)} && echo $(git rrl $(git config branch.$BRANCH.remote))"/tree/"$(git config branch.$BRANCH.merge | sed -E s/refs.heads.//)' - # Get the GitHub URL of a branch (HEAD by default)
