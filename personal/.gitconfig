@@ -21,6 +21,7 @@
   gl = config --global -l # List all global git configs
   se = !git rev-list --all | xargs git grep -F # Search for a string within your commits
   alias = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+  th = !git fo && git switch # For TopHatting: Fetch and switch to a remote branch
 
   #  === Stash Commands ===
   sl = stash list
