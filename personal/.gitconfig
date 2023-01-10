@@ -17,6 +17,7 @@
   pocb = push origin HEAD # Push to branch you're working on.
   comb = !git fo && git checkout origin/main -b
   romi = !git fo && git rebase origin/main -i
+  fl = !git fo origin main && git rebase origin/main && git push origin +      #Force update a branch
   dv = difftool -t vimdiff -y
   gl = config --global -l # List all global git configs
   se = !git rev-list --all | xargs git grep -F # Search for a string within your commits
