@@ -4,3 +4,4 @@
 # over any other customization.
 
 alias g='git'
+alias inv='~/dotfiles/personal/inventory.sh'
