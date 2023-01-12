@@ -14,5 +14,6 @@ alias rbis='bin/tapioca dsl'                                        # To generat
 
 alias checks='style && typecheck && test'                           # Use this before every push!
 
+alias inv='~/dotfiles/personal/inventory.sh'                        # TODO: Investigate permission denied error.
 alias ebeta='bin/rails dev:betas:enable SHOP_ID=1 BETA='            # Enable a beta flag for Shop 1
 alias dbeta='bin/rails dev:betas:disable SHOP_ID=1 BETA='           # Disable a beta flag for Shop 1
