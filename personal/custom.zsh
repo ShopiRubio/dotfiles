@@ -9,7 +9,7 @@ alias dump='bin/rails graphql:schema:dump'                          # Update Gra
 
 alias test='dev test --include-branch-commits'                      # Run rails backend tests for committed changes
 alias style='dev style -a --include-branch-commits'                 # Style and format code on committed changes
-alias typecheck='bin/typecheck'                                     # :sorbet: Typecheck to ensure signatures don't go stale
+alias typecheck='bundle exec srb tc'                                     # :sorbet: Typecheck to ensure signatures don't go stale
 alias rbis='bin/tapioca dsl'                                        # To generate the RBIs for Rails and other DSLs
 
 alias checks='style && typecheck && test'                           # Use this before every push!
