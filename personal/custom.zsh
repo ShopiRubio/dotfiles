@@ -6,6 +6,7 @@
 alias g='git'
 
 alias dump='bin/rails graphql:schema:dump'                          # Update GraphQL schema. Use `dump admin` for admin only!
+alias reindex='rake elasticsearch:reindex'                          # Before reindexing elastic search, comment out the mappings not needed in elastic_search_config.rb
 
 alias test='dev test --include-branch-commits'                      # Run rails backend tests for committed changes
 alias style='dev style -a --include-branch-commits'                 # Style and format code on committed changes
