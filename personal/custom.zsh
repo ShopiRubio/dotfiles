@@ -24,4 +24,4 @@ alias ebeta='f(){ bin/rails dev:betas:enable SHOP_ID=1 BETA="$@";  unset -f f; }
 alias dbeta='f(){ bin/rails dev:betas:disable SHOP_ID=1 BETA="$@";  unset -f f; }; f'         
 
 # git force update a branch
-alias gfu = 'f(){ g fo main && g rebase origin/main && g push origin +"$@";  unset -f f; }; f'
+alias gfu ='f(){ g fo main && g rebase origin/main && g push origin +"$@";  unset -f f; }; f'
