@@ -5,7 +5,7 @@
 
 alias g='git'
 
-alias dump='bin/rails graphql:schema:dump'                          # Update GraphQL schema. Use `dump admin` for admin only!
+alias dump='bin/rails graphql:schema:dump'                          # Update GraphQL schema.
 alias migrate='bin/rails db:migrate'                                # Run db migrations
 alias reindex='rake elasticsearch:reindex'                          # Before reindexing elastic search, comment out the mappings not needed in elastic_search_config.rb
 
