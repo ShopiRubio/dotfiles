@@ -40,9 +40,6 @@
   d1       = difftool HEAD^ HEAD       # Diff a file with itself from the previous commit
   d2       = difftool HEAD^^ HEAD      # Diff a file with itself from two commits ago
 
-  #  === Branch management ===
-  parseBranchName = !git branch | grep '*' | sed 's/* //'            # Get the current branch name
-
   #  === Logging ===
   last    = log -1 --decorate                                                       # Show the last commit on the current branch
   pretty  = log --pretty=format:"%C(auto)%h%d\\ %s\\ %C(cyan)[%aN]"
