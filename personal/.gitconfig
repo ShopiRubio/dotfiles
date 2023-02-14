@@ -6,22 +6,24 @@
   c = checkout
   a = add .
   fo = fetch origin
-  lb = branch             # List all local branches
-  nb = checkout -b        # Create a new branch and then switch to the newly created branch
-  db = branch -D          # Delete local branch
-  c-- = checkout -- .     # Reverts everything to the last committed state
-  res = !git reset --hard # When in need of a clean up of all of your local changes
+  lb = branch                                            # List all local branches
+  nb = checkout -b                                       # Create a new branch and then switch to the newly created branch
+  db = branch -D                                         # Delete local branch
+  cb = !git rev-parse --abbrev-ref HEAD                  # Get current branch name
+  c-- = checkout -- .                                    # Reverts everything to the last committed state
+  res = !git reset --hard                                # When in need of a clean up of all of your local changes
   ra = rebase --abort
   rc = rebase --continue
   acm = !git add -A && git commit -m
-  pocb = push origin HEAD # Push to branch you're working on.
+  pocb = push origin HEAD                                # Push to branch you're working on.
   comb = !git fo && git checkout origin/main -b
   romi = !git fo && git rebase origin/main -i
   dv = difftool -t vimdiff -y
-  gl = config --global -l # List all global git configs
-  se = !git rev-list --all | xargs git grep -F # Search for a string within your commits
+  gl = config --global -l                                # List all global git configs
+  se = !git rev-list --all | xargs git grep -F           # Search for a string within your commits
+  th = !git fo && git switch                             # For TopHatting: Fetch and switch to a remote branch
   alias = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
-  th = !git fo && git switch # For TopHatting: Fetch and switch to a remote branch
+
 
   #  === Stash Commands ===
   sl = stash list
