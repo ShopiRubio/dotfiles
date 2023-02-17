@@ -43,6 +43,7 @@
   #  === Logging ===
   last    = log -1 --decorate                                                       # Show the last commit on the current branch
   pretty  = log --pretty=format:"%C(auto)%h%d\\ %s\\ %C(cyan)[%aN]"
+  lol     = log --pretty=oneline
 
   #  === URL generation ===
   rrl     = !sh -c 'echo $(git config remote.${1:-origin}.url | sed -E s/[a-z]+@\\(.+?\\):\\(.+\\)\\.git$/\\\\\\1\\\\\\/\\\\\\2/)' - # Get the URL of a repository (origin by default)
