@@ -17,6 +17,8 @@ alias glint='dev graphqllint'                                       # Check for 
 
 alias checks='style && typecheck && test'                           # Use this before every push!
 
+alias pr='dev open pr'                                              # Push current branch, set remote as upstream, open PR on GitHub!
+
 alias inv='~/dotfiles/personal/inventory.sh'                        # TODO: Investigate permission denied error.
 
 # Enable a beta flag for Shop 1
