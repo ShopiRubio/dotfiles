@@ -38,3 +38,6 @@ alias mrl='/opt/kafka/bin/kafka-topics.sh --bootstrap-server $KAFKA_AGGREGATE_BR
 
 # Consume specific topic
 alias mrc='f(){ /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server $KAFKA_AGGREGATE_BROKERS --topic "$@" | jq '.payload | fromjson';  unset -f f; }; f'
+
+# Consume all
+alias mra='/opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server $KAFKA_AGGREGATE_BROKERS --include "monorail_.*" | jq ". | {schema_id, event_timestamp, payload}"'
