@@ -6,7 +6,7 @@
   c = checkout
   a = add .
   fo = fetch origin
-  lb = branch                                            # List all local branches
+  lb = branch -vv                                        # List all local branches
   nb = checkout -b                                       # Create a new branch and then switch to the newly created branch
   db = branch -D                                         # Delete local branch
   cb = !git rev-parse --abbrev-ref HEAD                  # Get current branch name
