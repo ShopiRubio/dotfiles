@@ -41,3 +41,10 @@ alias mrc='f(){ /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server $KAF
 
 # Consume all
 alias mra='/opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server $KAFKA_AGGREGATE_BROKERS --include "monorail_.*" | jq ". | {schema_id, event_timestamp, payload}"'
+
+### Web (https://web.docs.shopify.io/docs/guides/continuous-integration#linting)
+
+alias wgql='yarn refresh-graphql'
+alias wtype='yarn type-check'
+alias wtest='yarn test --watch'
+alias wchecks='wgql && wtype && wtest'
