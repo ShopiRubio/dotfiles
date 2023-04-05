@@ -9,7 +9,7 @@ alias dump='bin/rails graphql:schema:dump'                          # Update Gra
 alias migrate='bin/rails db:migrate'                                # Run db migrations.
 alias reindex='rake elasticsearch:reindex'                          # Before reindexing elastic search, comment out the mappings not needed in elastic_search_config.rb
 
-alias test='dev test --include-branch-commits'                      # Run rails backend tests for committed changes
+alias test='dev test --include-branch-commits --coverage'           # Run rails backend tests for committed changes and check coverage
 alias style='dev style -a --include-branch-commits'                 # Style and format code on committed changes
 alias typecheck='bundle exec srb tc'                                # :sorbet: Typecheck to ensure signatures don't go stale
 alias rbis='bin/tapioca dsl'                                        # To generate the RBIs for Rails and other DSLs
