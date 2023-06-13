@@ -18,6 +18,6 @@ def create_event(*args)
   events.sort_by(&:created_at).last
 end
 
-event_1 = create_event(:tracking_event, tracker_id: tracker.id, status: Enum::TrackingStatuses::OUT_FOR_DELIVERY, happened at: Time.current)
-event_2 = create_event(:tracking_event, tracker_id: tracker.id, status: Enum::TrackingStatuses::DELAYED, happened at: Time.current)
-event_3 = create_event(:tracking_event, tracker_id: tracker.id, status: Enum::TrackingStatuses::DELIVERED, happened at: Time.current)
+event_1 = create_event(:tracking_event, tracker_id: tracker.id, status: Enum::TrackingStatuses::OUT_FOR_DELIVERY, happened_at: Time.current)
+event_2 = create_event(:tracking_event, tracker_id: tracker.id, status: Enum::TrackingStatuses::DELAYED, happened_at: Time.current)
+event_3 = create_event(:tracking_event, tracker_id: tracker.id, status: Enum::TrackingStatuses::DELIVERED, happened_at: Time.current)
