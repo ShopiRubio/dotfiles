@@ -1,0 +1,10 @@
+schema: v1
+description:
+resources_profile: 2xlarge
+repos:
+  - checkout-web
+  - identity
+  - shopify:
+  - storefront-renderer
+  - web
+  - bloodhound
