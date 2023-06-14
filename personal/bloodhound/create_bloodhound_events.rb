@@ -13,7 +13,7 @@ def create_event(*args)
   now = Time.current
   event_record.created_at = now
   event_record.updated_at = now
-  Db:: Events::Facade.insert(tracker_id: tracker.id, events: [event_record.attributes])
+  Db::Events::Facade.insert(tracker_id: tracker.id, events: [event_record.attributes])
   events Db::Events::Facade.fetch(tracker.id)
   events.sort_by(&:created_at).last
 end
