@@ -3,6 +3,8 @@
 # Put anything here that you want to exist on all your environment, and to have the highest priority
 # over any other customization.
 
+# rake -T to see all possible rake scripts!
+
 alias g='git'
 
 alias dump='bin/rails graphql:schema:dump'                          # Update GraphQL schema.
