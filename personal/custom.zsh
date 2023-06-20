@@ -10,7 +10,7 @@ alias g='git'
 alias dump='bin/rails graphql:schema:dump'                          # Update GraphQL schema.
 alias dumpa='dev dump-graphql admin'                                # Update Admin GraphQL schema only.
 alias migrate='bin/rails db:migrate'                                # Run db migrations.
-alias test_es='bundle exec rake elasticsearch:update_test_mappings' # Generates elastic search test mappings.
+alias test_es='rake elasticsearch:update_test_mappings'             # Generates elastic search test mappings.
 alias reindex='rake elasticsearch:reindex'                          
 
 alias test='dev test --include-branch-commits'                      # Run rails backend tests for committed changes
