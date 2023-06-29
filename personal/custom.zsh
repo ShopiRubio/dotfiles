@@ -40,7 +40,7 @@ alias dbeta='f(){ bin/rails dev:betas:disable SHOP_ID=1 BETA="$@";  unset -f f; 
 alias gfu='f(){ g fo main && g rebase origin/main && g push origin -f $(git rev-parse --abbrev-ref HEAD);  unset -f f; }; f'
 
 # git add & commit, rebase from origin/main interactive and force update current branch. Example use: `gcrf "Commit message"`
-alias gcrf='f(){ g acm "$@" && g romi && gfu; unset -f f; }; f'
+alias gcrf='fu(){ g acm "$@" && g romi && gfu; unset -f fu; }; fu'
 
 ### Monorail
 
