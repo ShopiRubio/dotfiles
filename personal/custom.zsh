@@ -6,6 +6,7 @@
 # rake -T to see all possible rake scripts!
 
 alias g='git'
+alias tlog='tail -f log/development.log'
 
 alias dump='bin/rails graphql:schema:dump'                          # Update GraphQL schema.
 alias dumpa='dev dump-graphql admin'                                # Update Admin GraphQL schema only.
