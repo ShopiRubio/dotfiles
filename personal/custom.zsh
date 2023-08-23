@@ -8,8 +8,6 @@
 alias g='git'
 alias tlog='tail -f log/development.log'
 
-alias up='dev stop && dev up && dev start'                          # Isospin2 update equivalent
-
 alias dump='bin/rails graphql:schema:dump'                          # Update GraphQL schema.
 alias dumpa='dev dump-graphql admin'                                # Update Admin GraphQL schema only.
 alias migrate='bin/rails db:migrate'                                # Run db migrations.
