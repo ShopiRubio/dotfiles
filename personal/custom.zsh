@@ -46,6 +46,8 @@ alias gfu='f(){ g fo main && g rebase origin/main && g push origin -f $(git rev-
 # git add & commit, rebase from origin/main interactive and force update current branch. Example use: `gcrf "Commit message"`
 alias gcrf='fu(){ g acm "$@" && g romi && gfu; unset -f fu; }; fu'
 
+alias qf='gcrf "fixup! fix"'
+
 ### Monorail
 
 # List topics
