@@ -14,6 +14,8 @@ alias migrate='bin/rails db:migrate'                                # Run db mig
 alias test_es='rake elasticsearch:update_test_mappings'             # Generates elastic search test mappings.
 alias reindex='rake elasticsearch:reindex'                          
 
+alias token='rake dev:show_access_token'                            # Show the admin app's access token for Shop 1
+
 alias test='dev test --include-branch-commits'                      # Run rails backend tests for committed changes
 alias coverage='dev test --include-branch-commits --coverage'       # Run rails backend tests for committed changes AND check coverage
 
