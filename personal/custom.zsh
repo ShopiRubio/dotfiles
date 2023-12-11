@@ -27,10 +27,6 @@ alias checks='style && typecheck && test'                           # Use this b
 
 alias pr='dev open pr'                                              # Push current branch, set remote as upstream, open PR on GitHub!
 
-alias inv='~/dotfiles/personal/inventory.sh'                        # TODO: Investigate permission denied error.
-
-alias dummy_orders='rake dev:orders:generate_dummy_orders'
-
 alias merchant='f(){ dev copy-shop-settings "$@";  unset -f f; }; f' # merchant <production_shop_id>
 
 # Enable a beta flag for Shop 1
@@ -68,3 +64,8 @@ alias wgql='yarn refresh-graphql'
 alias wtype='yarn type-check'
 alias wtest='yarn test --watch'
 alias wchecks='wgql && wtype && wtest'
+
+### Orders
+
+alias dummy_orders='rake dev:orders:generate_dummy_orders'
+alias quick_orders='rake dev:orders:create NUM=10'
