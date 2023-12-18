@@ -56,3 +56,6 @@ source $DF_USER/custom.zsh
 
 # Load changes specific to this local environment.
 source ~/extra.zsh
+
+# Enable iTerm2 Shell Integration
+source ~/DOTFILES_DIRECTORY_NAME/zsh/iterm2.zsh
