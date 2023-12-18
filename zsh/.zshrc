@@ -58,4 +58,4 @@ source $DF_USER/custom.zsh
 source ~/extra.zsh
 
 # Enable iTerm2 Shell Integration
-source ~/DOTFILES_DIRECTORY_NAME/zsh/iterm2.zsh
+source $DF_HOME/zsh/iterm2.zsh
