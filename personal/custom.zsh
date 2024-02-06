@@ -73,4 +73,5 @@ alias dummy_orders='rake dev:orders:generate_dummy_orders'
 alias quick_orders='rake dev:orders:create NUM=10'
 
 ### Orderprinter
+
 alias staging='git push origin +HEAD:staging'
