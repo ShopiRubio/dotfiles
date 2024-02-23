@@ -69,8 +69,8 @@ alias wchecks='wgql && wtype && wtest'
 
 ### Orders
 
-alias dummy_orders='rake dev:orders:generate_dummy_orders'
-alias quick_orders='rake dev:orders:create NUM=10'
+alias dummy_orders='rake dev:orders:generate_dummy_orders SHOP_ID=1'
+alias quick_orders='rake dev:orders:create NUM=10 SHOP_ID=1'
 
 ### Orderprinter
 
