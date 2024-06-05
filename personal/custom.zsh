@@ -67,10 +67,11 @@ alias wtype='yarn type-check'
 alias wtest='yarn test --watch'
 alias wchecks='wgql && wtype && wtest'
 
-### Orders
+### Useful Core Rake tasks
 
 alias dummy_orders='rake dev:orders:generate_dummy_orders SHOP_ID=1'
 alias quick_orders='rake dev:orders:create NUM=10 SHOP_ID=1'
+alias products='NUM=10 SHOP_ID=1 rake dev:products:create'
 
 ### Orderprinter
 
