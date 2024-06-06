@@ -3,7 +3,7 @@
 # Put anything here that you want to exist on all your environment, and to have the highest priority
 # over any other customization.
 
-# rake -T to see all possible rake scripts!
+# rake -T to see all possible rake scripts! Pro tip to find something in particular: (ex: "pickup"): `bin/rake -T | grep pickup`
 
 alias g='git'
 alias tlog='tail -f log/development.log'
