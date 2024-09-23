@@ -76,6 +76,26 @@ alias products='NUM=10 SHOP_ID=1 rake dev:products:create'
 alias dummy_orders='rake dev:orders:generate_dummy_orders SHOP_ID=1'            # takes longer, but generates lots of orders in many different states
 alias plus='rake dev:shop:change_plan SHOP_ID=1 PLAN=shopify_plus'
 
+### Troubleshooting
+
+alias killport='f() { 
+    echo "Processes running on port $1:"
+    lsof -i :$1
+    pid=$(lsof -ti :$1)
+    if [ -z "$pid" ]; then
+        echo "No process found running on port $1"
+    else
+        echo "Process with PID $pid is running on port $1"
+        read -p "Do you want to kill this process? (y/N) " confirm
+        if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+            kill -9 $pid
+            echo "Process $pid has been killed"
+        else
+            echo "Operation cancelled"
+        fi
+    fi
+}; f'
+
 ### Orderprinter
 
 alias staging='git push origin +HEAD:staging'
