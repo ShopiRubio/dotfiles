@@ -86,7 +86,8 @@ alias killport='f() {
         echo "No process found running on port $1"
     else
         echo "Process with PID $pid is running on port $1"
-        read -p "Do you want to kill this process? (y/N) " confirm
+        echo -n "Do you want to kill this process? (y/N) "
+        read confirm
         if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
             kill -9 $pid
             echo "Process $pid has been killed"
