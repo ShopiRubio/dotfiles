@@ -64,9 +64,9 @@ alias mra='/opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server $KAFKA_AG
 
 ### Web (https://web.docs.shopify.io/docs/guides/continuous-integration#linting)
 
-alias wgql='yarn refresh-graphql'
-alias wtype='yarn type-check'
-alias wtest='yarn test --watch'
+alias wgql='pnpm refresh-graphql'
+alias wtype='pnpm type-check'
+alias wtest='pnpm test --watch'
 alias wchecks='wgql && wtype && wtest'
 
 ### Useful Core Rake tasks
