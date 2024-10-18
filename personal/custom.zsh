@@ -6,7 +6,7 @@
 # rake -T to see all possible rake scripts! Pro tip to find something in particular: (ex: "pickup"): `bin/rake -T | grep pickup`
 
 # Need this for local now.
-source $HOME/dotfiles/personal/custom.zsh
+# source $HOME/dotfiles/personal/custom.zsh
 
 alias g='git'
 alias tlog='tail -f log/development.log'
