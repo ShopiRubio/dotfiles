@@ -100,6 +100,11 @@ alias killport='f() {
     fi
 }; f'
 
+### Local Dev
+
+alias web="cd ~/src/github.com/Shopify/web/areas/clients/admin-web"
+alias shopify="cd ~/src/github.com/Shopify/shopify"
+
 ### Orderprinter
 
 alias staging='git push origin +HEAD:staging'
