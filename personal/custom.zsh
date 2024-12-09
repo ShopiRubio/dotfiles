@@ -36,6 +36,9 @@ alias pr='dev open pr'                                              # Push curre
 
 alias merchant='f(){ dev copy-shop-settings "$@";  unset -f f; }; f' # merchant <production_shop_id>
 
+# Graphite
+alias gtc='f(){ gt create --all --message "$@";  unset -f f; }; f'
+
 # Enable a beta flag for Shop 1
 alias ebeta='f(){ bin/rails dev:betas:enable SHOP_ID=1 BETA="$@";  unset -f f; }; f'
 
