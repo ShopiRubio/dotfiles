@@ -60,7 +60,7 @@ alias gcrf='fu(){ g acm "$@" && g romi && gfu; unset -f fu; }; fu'
 # git short for quick fix
 alias qf='gcrf "fixup! fix"'
 
-# git ask for file and line range to do a git blame and PR search
+# git ask for file and line range to do a git blame and PR search - then add a line in there for AI agent :) 
 alias gblame='f() { 
     echo -n "Enter the file path: "
     read file_path
@@ -71,14 +71,19 @@ alias gblame='f() {
     read end_line
     end_line=${end_line:-$}
 
-    git blame -L "$start_line,$end_line" "$file_path" | \
-    while read -r line; do
-        sha=$(echo "$line" | awk '"'"'{print $1}'"'"')
-        echo "$line"
-        echo "PR Info for $sha:"
-        gh pr list --search "$sha" --state merged --json number,title,body --jq '"'"'.[] | "PR #\(.number): \(.title)\nDescription: \(.body)\n"'"'"'
-        echo "-------------------"
-    done | pbcopy
+    (
+        git blame -L "$start_line,$end_line" "$file_path" | \
+        while read -r line; do
+            sha=$(echo "$line" | awk '"'"'{print $1}'"'"')
+            echo "$line"
+            echo "PR Info for $sha:"
+            gh pr list --search "$sha" --state merged --json number,title,body --jq '"'"'.[] | "PR #\(.number): \(.title)\nDescription: \(.body)\n"'"'"'
+            echo "-------------------"
+        done
+
+        echo ""
+        echo "Given the blame and log history, why was this change made?"
+    ) | pbcopy
 
     echo "Results have been copied to clipboard."
 }; f'
