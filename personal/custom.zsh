@@ -61,7 +61,7 @@ alias gcrf='fu(){ g acm "$@" && g romi && gfu; unset -f fu; }; fu'
 alias qf='gcrf "fixup! fix"'
 
 # git ask for file and line range to do a git blame and PR search
-alias gblame='f() {
+alias gblame='f() { 
     echo -n "Enter the file path: "
     read file_path
     echo -n "Enter the start line (default: 1): "
@@ -71,15 +71,13 @@ alias gblame='f() {
     read end_line
     end_line=${end_line:-$}
 
-    git blame -L $start_line,$end_line "$file_path" | \
+    git blame -L "$start_line,$end_line" "$file_path" | \
     while read -r line; do
-        sha=$(echo $line | awk '{print $1}')
-        {
-            echo "$line"
-            echo "PR Info for $sha:"
-            gh pr list --search "$sha" --state merged --json number,title,body --jq '.[] | "PR #\(.number): \(.title)\nDescription: \(.body)\n"'
-            echo "-------------------"
-        }
+        sha=$(echo "$line" | awk '"'"'{print $1}'"'"')
+        echo "$line"
+        echo "PR Info for $sha:"
+        gh pr list --search "$sha" --state merged --json number,title,body --jq '"'"'.[] | "PR #\(.number): \(.title)\nDescription: \(.body)\n"'"'"'
+        echo "-------------------"
     done | pbcopy
 
     echo "Results have been copied to clipboard."
