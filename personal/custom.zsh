@@ -39,13 +39,14 @@ alias merchant='f(){ dev copy-shop-settings "$@";  unset -f f; }; f' # merchant 
 # Graphite
 alias gtc='f(){ gt create --all --message "$@";  unset -f f; }; f'
 
-# Verdict? alias ebeta='f(){ bundle exec verdict "$@";  unset -f f; }; f'
+# Verdict 
+alias vbeta='f(){ bundle exec verdict "$@";  unset -f f; }; f'
 
-# Enable a beta flag for Shop 1
+# Enable a legacy beta flag for Shop 1
 alias ebeta='f(){ bin/rails dev:betas:enable SHOP_ID=1 BETA="$@";  unset -f f; }; f'
 
-# Disable a beta flag for Shop 1
-alias dbeta='f(){ bin/rails dev:betas:disable SHOP_ID=1 BETA="$@";  unset -f f; }; f'         
+# Disable a legacy beta flag for Shop 1
+alias dbeta='f(){ bin/rails dev:betas:disable SHOP_ID=1 BETA="$@";  unset -f f; }; f'        
 
 # git first commit and push
 alias cpr='f(){ g fo main && g pull origin main && g acm "$@" && pr;  unset -f f; }; f'
@@ -56,8 +57,33 @@ alias gfu='f(){ g fo main && g rebase origin/main && g push origin -f $(git rev-
 # git add & commit, rebase from origin/main interactive and force update current branch. Example use: `gcrf "Commit message"`
 alias gcrf='fu(){ g acm "$@" && g romi && gfu; unset -f fu; }; fu'
 
-# short for quick fix
+# git short for quick fix
 alias qf='gcrf "fixup! fix"'
+
+# git ask for file and line range to do a git blame and PR search
+alias gblame='f() {
+    echo -n "Enter the file path: "
+    read file_path
+    echo -n "Enter the start line (default: 1): "
+    read start_line
+    start_line=${start_line:-1}
+    echo -n "Enter the end line (default: end of file): "
+    read end_line
+    end_line=${end_line:-$}
+
+    git blame -L $start_line,$end_line "$file_path" | \
+    while read -r line; do
+        sha=$(echo $line | awk '{print $1}')
+        {
+            echo "$line"
+            echo "PR Info for $sha:"
+            gh pr list --search "$sha" --state merged --json number,title,body --jq '.[] | "PR #\(.number): \(.title)\nDescription: \(.body)\n"'
+            echo "-------------------"
+        }
+    done | pbcopy
+
+    echo "Results have been copied to clipboard."
+}; f'
 
 ### Monorail
 
