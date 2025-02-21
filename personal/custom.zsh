@@ -69,10 +69,16 @@ alias gblame='f() {
     start_line=${start_line:-1}
     echo -n "Enter the end line (default: end of file): "
     read end_line
-    end_line=${end_line:-$}
+    
+    blame_range=""
+    if [ -n "$end_line" ]; then
+        blame_range="-L $start_line,$end_line"
+    else
+        blame_range="-L $start_line"
+    fi
 
     (
-        git blame -L "$start_line,$end_line" "$file_path" | \
+        git blame $blame_range "$file_path" | \
         while read -r line; do
             sha=$(echo "$line" | awk '"'"'{print $1}'"'"')
             echo "$line"
