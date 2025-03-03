@@ -44,6 +44,8 @@ alias gtc='f(){ gt create --all --message "$@";  unset -f f; }; f'
 # Verdict 
 alias vbeta='f(){ bundle exec verdict "$@";  unset -f f; }; f'
 
+alias newflag='f(){ bundle exec rails g verdict:flag "$@";  unset -f f; }; f'
+
 # Enable a legacy beta flag for Shop 1
 alias ebeta='f(){ bin/rails dev:betas:enable SHOP_ID=1 BETA="$@";  unset -f f; }; f'
 
