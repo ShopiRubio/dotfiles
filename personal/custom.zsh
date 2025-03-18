@@ -36,8 +36,6 @@ alias pr='dev open pr'                                              # Push curre
 
 alias shipped='f(){ dev conveyor is-it-shipped //areas/core/shopify "$@";  unset -f f; }; f'
 
-alias merchant='f(){ dev copy-shop-settings "$@";  unset -f f; }; f' # merchant <production_shop_id>
-
 # Graphite
 alias gtc='f(){ gt create --all --message "$@";  unset -f f; }; f'
 
