@@ -21,7 +21,7 @@ alias webhook_docs='dev generate-api-docs-openapi webhook_subscription' # Genera
 
 alias token='rake dev:show_access_token'                            # Show the admin app's access token for Shop 1
 
-alias test='dev test --include-branch-commits'                      # Run rails backend tests for committed changes
+alias test='dev test --include-branch-commits --fail-fast'          # Run rails backend tests for committed changes
 alias coverage='dev test --include-branch-commits --coverage'       # Run rails backend tests for committed changes AND check coverage
 
 alias style='dev style -a --include-branch-commits'                 # Style and format code on committed changes
