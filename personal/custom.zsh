@@ -34,7 +34,7 @@ alias checks='style && typecheck && test'                           # Use this b
 
 alias pr='dev open pr'                                              # Push current branch, set remote as upstream, open PR on GitHub!
 
-alias shipped='f(){ dev conveyor is-it-shipped //areas/core/shopify "$@";  unset -f f; }; f'
+alias shipped='f(){ dev conveyor is-it-shipped "$@";  unset -f f; }; f'
 
 # Graphite
 alias gtc='f(){ gt create --all --message "$@";  unset -f f; }; f'
