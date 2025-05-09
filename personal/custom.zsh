@@ -36,6 +36,8 @@ alias pr='dev open pr'                                              # Push curre
 
 alias shipped='f(){ dev conveyor is-it-shipped "$@";  unset -f f; }; f'
 
+alias vsclaude='ENABLE_IDE_INTEGRATION=true claude'
+
 # Graphite
 alias gtc='f(){ gt create --all --message "$@";  unset -f f; }; f'
 
