@@ -22,6 +22,7 @@
   gl = config --global -l                                # List all global git configs
   se = !git rev-list --all | xargs git grep -F           # Search for a string within your commits
   th = !git fo && git switch                             # For TopHatting: Fetch and switch to a remote branch
+  find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
   alias = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
 
 
