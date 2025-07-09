@@ -27,6 +27,7 @@ alias coverage='dev test --include-branch-commits --coverage'       # Run rails 
 alias style='dev style -a --include-branch-commits'                 # Style and format code on committed changes
 alias typecheck='bundle exec srb tc'                                # :sorbet: Typecheck to ensure signatures don't go stale
 
+alias to_rbs='f(){ spoom srb sigs translate "$@";  unset -f f; }; f'
 alias rbis='bin/tapioca dsl'                                        # To generate the RBIs for Rails and other DSLs
 alias glint='dev graphqllint'                                       # Check for GraphQL Lint violations.
 
