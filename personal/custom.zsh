@@ -33,9 +33,9 @@ alias glint='dev graphqllint'                                       # Check for 
 
 alias checks='style && typecheck && test'                           # Use this before every push!
 
-alias pr='dev open pr'                                              # Push current branch, set remote as upstream, open PR on GitHub!
-
 alias shipped='f(){ dev conveyor is-it-shipped "$@";  unset -f f; }; f'
+
+alias find_pr='f(){ dev update 44cdfec && dev find-pr "$@" && dev update;  unset -f f; }; f'
 
 alias vsclaude='ENABLE_IDE_INTEGRATION=true claude'
 
@@ -146,11 +146,6 @@ alias killport='f() {
         fi
     fi
 }; f'
-
-### Local Dev
-
-alias web="cd ~/src/github.com/Shopify/web/areas/clients/admin-web"
-alias shopify="cd ~/src/github.com/Shopify/shopify/areas/core/shopify"
 
 ### Orderprinter
 
