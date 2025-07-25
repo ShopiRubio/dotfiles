@@ -21,8 +21,8 @@ alias webhook_docs='dev generate-api-docs-openapi webhook_subscription' # Genera
 
 alias token='rake dev:show_access_token'                            # Show the admin app's access token for Shop 1
 
-alias test='dev test --include-branch-commits --fail-fast --record-deprecations'       # Run rails backend tests for committed changes
-alias coverage='dev test --include-branch-commits --coverage'       # Run rails backend tests for committed changes AND check coverage
+alias test='dev test --include-branch-commits --record-deprecations'  # Run rails backend tests for committed changes
+alias coverage='test --coverage'                                    # Run rails backend tests for committed changes AND check coverage
 
 alias style='dev style -a --include-branch-commits'                 # Style and format code on committed changes
 alias typecheck='bundle exec srb tc'                                # :sorbet: Typecheck to ensure signatures don't go stale
@@ -31,7 +31,7 @@ alias to_rbs='f(){ spoom srb sigs translate "$@";  unset -f f; }; f'
 alias rbis='bin/tapioca dsl'                                        # To generate the RBIs for Rails and other DSLs
 alias glint='dev graphqllint'                                       # Check for GraphQL Lint violations.
 
-alias checks='style && typecheck && test'                           # Use this before every push!
+alias checks='style && typecheck && coverage'                           # Use this before every push!
 
 alias shipped='f(){ dev conveyor is-it-shipped "$@";  unset -f f; }; f'
 
