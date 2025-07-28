@@ -23,6 +23,7 @@ alias token='rake dev:show_access_token'                            # Show the a
 
 alias test='dev test --include-branch-commits --record-deprecations'  # Run rails backend tests for committed changes
 alias coverage='test --coverage'                                    # Run rails backend tests for committed changes AND check coverage
+alias coverage_html='f(){ dev test --coverage-html "$@" && dev open test:coverage;  unset -f f; }; f'
 
 alias style='dev style -a --include-branch-commits'                 # Style and format code on committed changes
 alias typecheck='bundle exec srb tc'                                # :sorbet: Typecheck to ensure signatures don't go stale
