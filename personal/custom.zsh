@@ -12,29 +12,29 @@ alias g='git'
 alias tlog='tail -f log/development.log'
 
 alias dump='bin/rails graphql:schema:dump'                          # Update GraphQL schema.
-alias dumpa='devx dump-graphql admin'                                # Update Admin GraphQL schema only.
+alias dumpa='dev dump-graphql admin'                                # Update Admin GraphQL schema only.
 alias migrate='bin/rails db:migrate'                                # Run db migrations.
 alias test_es='rake elasticsearch:update_test_mappings'             # Generates elastic search test mappings.
 alias reindex='rake elasticsearch:reindex'                          
 
-alias webhook_docs='devx generate-api-docs-openapi webhook_subscription' # Generate webhook documentation (topics.yml)
+alias webhook_docs='dev generate-api-docs-openapi webhook_subscription' # Generate webhook documentation (topics.yml)
 
 alias token='rake dev:show_access_token'                            # Show the admin app's access token for Shop 1
 
-alias test='devx test --include-branch-commits --record-deprecations'  # Run rails backend tests for committed changes
+alias test='dev test --include-branch-commits --record-deprecations'  # Run rails backend tests for committed changes
 alias coverage='test --coverage'                                    # Run rails backend tests for committed changes AND check coverage
-alias coverage_html='f(){ devx test --coverage-html "$@" && devx open test:coverage;  unset -f f; }; f'
+alias coverage_html='f(){ dev test --coverage-html "$@" && dev open test:coverage;  unset -f f; }; f'
 
 alias style='dev style -a --include-branch-commits'                 # Style and format code on committed changes
 alias typecheck='bundle exec srb tc'                                # :sorbet: Typecheck to ensure signatures don't go stale
 
 alias to_rbs='f(){ spoom srb sigs translate "$@";  unset -f f; }; f'
 alias rbis='bin/tapioca dsl'                                        # To generate the RBIs for Rails and other DSLs
-alias glint='devx graphqllint'                                       # Check for GraphQL Lint violations.
+alias glint='dev graphqllint'                                       # Check for GraphQL Lint violations.
 
 alias checks='style && typecheck && coverage'                           # Use this before every push!
 
-alias shipped='f(){ devx conveyor is-it-shipped "$@";  unset -f f; }; f'
+alias shipped='f(){ dev conveyor is-it-shipped "$@";  unset -f f; }; f'
 
 alias vsclaude='ENABLE_IDE_INTEGRATION=true claude'
 
