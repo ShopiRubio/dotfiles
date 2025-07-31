@@ -25,7 +25,7 @@ alias test='devx test --include-branch-commits --record-deprecations'  # Run rai
 alias coverage='test --coverage'                                    # Run rails backend tests for committed changes AND check coverage
 alias coverage_html='f(){ devx test --coverage-html "$@" && devx open test:coverage;  unset -f f; }; f'
 
-alias style='devx style -a --include-branch-commits'                 # Style and format code on committed changes
+alias style='dev style -a --include-branch-commits'                 # Style and format code on committed changes
 alias typecheck='bundle exec srb tc'                                # :sorbet: Typecheck to ensure signatures don't go stale
 
 alias to_rbs='f(){ spoom srb sigs translate "$@";  unset -f f; }; f'
