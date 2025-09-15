@@ -36,7 +36,7 @@ alias checks='style && typecheck && coverage'                           # Use th
 
 alias shipped='f(){ dev conveyor is-it-shipped "$@";  unset -f f; }; f'
 
-alias vsclaude='ENABLE_IDE_INTEGRATION=true claude'
+alias vsclaude='ENABLE_IDE_INTEGRATION=true devx claude'
 
 alias ntmux='f(){ tmux -CC new -A -s "$@";  unset -f f; }; f'
 
