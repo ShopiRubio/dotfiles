@@ -9,6 +9,7 @@
 # source $HOME/dotfiles/personal/custom.zsh
 
 alias g='git'
+alias gprune='g gc --prune=now'
 alias tlog='tail -f log/development.log'
 
 alias dump='bin/rails graphql:schema:dump'                          # Update GraphQL schema.
