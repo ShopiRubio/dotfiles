@@ -27,7 +27,7 @@ alias coverage='test --coverage'                                    # Run rails 
 alias coverage_html='f(){ dev test --coverage-html "$@" && dev open test:coverage;  unset -f f; }; f'
 
 alias style='dev style -a --include-branch-commits'                 # Style and format code on committed changes
-alias typecheck='bundle exec srb tc'                                # :sorbet: Typecheck to ensure signatures don't go stale
+alias typecheck='bundle exec srb tc -a'                                # :sorbet: Typecheck to ensure signatures don't go stale
 
 alias to_rbs='f(){ spoom srb sigs translate "$@";  unset -f f; }; f'
 alias rbis='bin/tapioca dsl'                                        # To generate the RBIs for Rails and other DSLs
