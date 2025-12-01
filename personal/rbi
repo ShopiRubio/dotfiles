@@ -1,6 +1,0 @@
-#!/bin/bash
-# Convenient wrapper for regenerate_rbi_smart.rb
-# Usage: rbi [options]
-
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ruby "${SCRIPT_DIR}/regenerate_rbi_smart.rb" "$@"
