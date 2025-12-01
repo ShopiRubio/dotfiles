@@ -31,12 +31,10 @@ alias typecheck='bundle exec srb tc -a'                                # :sorbet
 
 alias to_rbs='f(){ spoom srb sigs translate "$@";  unset -f f; }; f'
 
-alias rbis='/Users/joel.rubio/dotfiles/personal/rbi'                 # More efficient way to generate RBI changes
-alias rbis_='bin/tapioca dsl'                                        # To generate the RBIs for Rails and other DSLs
-
+alias rbis='bin/tapioca dsl'                                        # To generate the RBIs for Rails and other DSLs
 alias glint='dev graphqllint'                                       # Check for GraphQL Lint violations.
 
-alias checks='style && typecheck && rbis && coverage'                           # Use this before every push!
+alias checks='style && typecheck && coverage'                           # Use this before every push!
 
 alias shipped='f(){ dev conveyor is-it-shipped "$@";  unset -f f; }; f'
 
